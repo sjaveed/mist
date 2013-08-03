@@ -28,7 +28,15 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
+  # RSpec testing framework
   gem 'rspec-rails', '~> 2.0'
+
+  # Fixtures framework
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :doc do
