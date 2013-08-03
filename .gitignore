@@ -14,3 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# RubyMine project workspace changes
+/.idea/workspace.xml
+/.idea/tasks.xml
