@@ -9,6 +9,6 @@ class Tournament < ActiveRecord::Base
     lat ||= 0
     long ||= 0
 
-    order{((latitude - lat) * (latitude - lat) + (longitude - long) * (longitude - long)).desc}
+    order{(pow(latitude - lat, 2) + pow(longitude - long, 2)).asc}
   end
 end
