@@ -16,8 +16,7 @@
 /tmp
 
 # RubyMine project workspace changes
-/.idea/workspace.xml
-/.idea/tasks.xml
+/.idea
 
 # OSX Finder metadata
 .DS_Store
