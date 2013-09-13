@@ -7,6 +7,8 @@ describe Tournament do
   it { should validate_presence_of(:latitude) }
   it { should validate_presence_of(:longitude) }
 
+  it { should have_many(:contests) }
+
   describe '.order_by_proximity_to' do
     before :each do
       @dc = FactoryGirl.create :tournament

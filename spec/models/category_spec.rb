@@ -5,4 +5,5 @@ describe Category do
   it { should validate_uniqueness_of(:name) }
 
   it { should have_many(:contest_templates) }
+  it { should have_many(:contests) }
 end

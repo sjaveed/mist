@@ -2,4 +2,5 @@ class Category < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 
   has_many :contest_templates
+  has_many :contests
 end
