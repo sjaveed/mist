@@ -5,6 +5,8 @@ class Tournament < ActiveRecord::Base
   validates_presence_of :latitude
   validates_presence_of :longitude
 
+  has_many :contests
+
   def self.order_by_proximity_to lat = 0.0, long = 0.0
     order{(pow(latitude - lat, 2) + pow(longitude - long, 2)).asc}
   end
