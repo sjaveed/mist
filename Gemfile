@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 1.2'
 # Amazing SQL generator
 gem 'squeel'
 
+# Complete authentication solution
+gem 'devise'
+
 group :development, :test do
   # RSpec testing framework
   gem 'rspec-rails', '~> 2.0'
