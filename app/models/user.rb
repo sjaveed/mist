@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :registrations
+
+  def register contest
+    registrations.create(contest: contest)
+  end
 end
