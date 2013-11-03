@@ -4,5 +4,5 @@ class Contest < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { scope: :tournament_id }
 
-  has_many :registrations
+  has_many :registrations, :dependent => :destroy
 end
