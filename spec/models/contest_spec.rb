@@ -6,4 +6,6 @@ describe Contest do
 
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name).scoped_to(:tournament_id) }
+
+  it { should have_many(:registrations).dependent(:destroy) }
 end

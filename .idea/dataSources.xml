@@ -2,6 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="4053136785">
     <data-source source="LOCAL" name="Rails mist: production" uuid="a08de024-8697-45b9-9a45-0b7584e34792">
+      <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/mist_production</jdbc-url>
       <user-name>root</user-name>
@@ -15,6 +16,7 @@
       </libraries>
     </data-source>
     <data-source source="LOCAL" name="Rails mist: development" uuid="0f13a583-54e2-45e1-bb3e-8d1951b43d48">
+      <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/mist_development</jdbc-url>
       <user-name>root</user-name>
@@ -28,6 +30,7 @@
       </libraries>
     </data-source>
     <data-source source="LOCAL" name="Rails mist: test" uuid="36adc209-9896-4d18-9b2b-9481da712254">
+      <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/mist_test</jdbc-url>
       <user-name>root</user-name>

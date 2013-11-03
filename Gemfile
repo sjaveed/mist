@@ -33,6 +33,9 @@ gem 'squeel'
 # Complete authentication solution
 gem 'devise'
 
+# Documentation
+gem 'yard', require: false
+
 group :development, :test do
   # RSpec testing framework
   gem 'rspec-rails', '~> 2.0'
