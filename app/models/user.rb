@@ -13,4 +13,10 @@ class User < ActiveRecord::Base
 
     registrations.create(contest: new_contest)
   end
+
+  def withdraw existing_contest
+    raise Mist::Registration::ContestNotFound.new if existing_contest.nil?
+
+    registrations.where{contest_id == existing_contest.id}.destroy_all
+  end
 end
