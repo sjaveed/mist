@@ -46,4 +46,36 @@ describe ContestTemplate do
       end
     end
   end
+
+  describe '#build_contest_for' do
+    let(:template) { FactoryGirl.create(:contest_template) }
+
+    context 'given a tournament' do
+      let(:tourney) { FactoryGirl.create(:tournament) }
+
+      before(:each) do
+        @contest = template.build_contest_for(tourney)
+      end
+
+      it 'should return a newly built contest' do
+        expect(@contest).to be_a_new(Contest)
+      end
+
+      context 'the resulting built contest' do
+        it 'should have the same name as the contest template' do
+          expect(@contest.name).to eq(template.name)
+        end
+
+        it 'should belong to the tournament specified' do
+          expect(@contest.tournament).to eq(tourney)
+        end
+      end
+    end
+
+    context 'given a nil tournament' do
+      it 'should raise a Registration::TournamentNotFound exception' do
+        expect{template.build_contest_for(nil)}.to raise_error(Mist::Registration::TournamentNotFound)
+      end
+    end
+  end
 end
