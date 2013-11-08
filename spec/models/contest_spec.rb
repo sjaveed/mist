@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Contest do
   it { should belong_to(:category) }
+  it { should belong_to(:contest_template) }
   it { should belong_to(:tournament) }
 
   it { should validate_presence_of(:name) }

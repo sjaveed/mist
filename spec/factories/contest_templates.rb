@@ -5,5 +5,6 @@ FactoryGirl.define do
     association :category
 
     sequence(:name) {|n| "Contest Template #{n}" }
+    active true
   end
 end
