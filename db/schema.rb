@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108100530) do
+ActiveRecord::Schema.define(version: 20131108201946) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131108100530) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active",      default: true
   end
 
   add_index "contest_templates", ["category_id"], name: "index_contest_templates_on_category_id", using: :btree
