@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :registrations
+  has_many :team_memberships
+  has_many :teams, :through => :team_memberships
 
   # Register this User for the given Contest
   #

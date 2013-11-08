@@ -6,6 +6,7 @@ class Tournament < ActiveRecord::Base
   validates_presence_of :longitude
 
   has_many :contests, :dependent => :destroy
+  has_many :teams, :dependent => :destroy
 
   # A scope that orders all Tournaments in the database in order of proximity to the given coordinates.  The first
   # record is the Tournament closest to the given geographical coordinates.
