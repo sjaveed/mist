@@ -20,4 +20,12 @@ class Tournament < ActiveRecord::Base
   def self.order_by_proximity_to lat = 0.0, long = 0.0
     order{(pow(latitude - lat, 2) + pow(longitude - long, 2)).asc}
   end
+
+  # Create one Contest per active ContestTemplate for this Tournament
+  def create_default_contests
+    ContestTemplate.active.each do |template|
+      c = template.build_contest_for self
+      c.save
+    end
+  end
 end

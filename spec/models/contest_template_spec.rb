@@ -6,6 +6,8 @@ describe ContestTemplate do
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
 
+  it { should have_many(:contests) }
+
   describe '.active (scope)' do
     context 'given an inactive and an active template' do
       let! (:inactive_template) { FactoryGirl.create(:contest_template, active: false) }
@@ -62,6 +64,10 @@ describe ContestTemplate do
       end
 
       context 'the resulting built contest' do
+        it 'should belong to the contest template used to build it' do
+          expect(@contest.contest_template).to eq(template)
+        end
+
         it 'should have the same name as the contest template' do
           expect(@contest.name).to eq(template.name)
         end

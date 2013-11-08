@@ -3,6 +3,8 @@ class ContestTemplate < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
+  has_many :contests
+
   scope :active, -> { where{active == true} }
 
   # Given a Tournament it returns a newly built (but not saved) Contest with data stored in the ContestTemplate
@@ -19,6 +21,6 @@ class ContestTemplate < ActiveRecord::Base
   def build_contest_for tournament
     raise Mist::Registration::TournamentNotFound if tournament.nil?
 
-    tournament.contests.build(name: name)
+    tournament.contests.build(name: name, contest_template: self)
   end
 end

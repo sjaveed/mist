@@ -35,4 +35,31 @@ describe Tournament do
       expect(farthest_tournament).to eq(@houston)
     end
   end
+
+  describe '#create_default_contests' do
+    let(:tourney) { FactoryGirl.create(:tournament) }
+    let!(:inactive_template1) { FactoryGirl.create(:contest_template, active: false) }
+    let!(:active_template1) { FactoryGirl.create(:contest_template) }
+    let!(:active_template2) { FactoryGirl.create(:contest_template) }
+
+    before(:each) do
+      tourney.contests = []
+    end
+
+    it 'should create two new contests' do
+      expect{tourney.create_default_contests}.to change{tourney.contests.size}.from(0).to(2)
+    end
+
+    it 'should create new contests from all active contest templates' do
+      tourney.create_default_contests
+
+      expect(tourney.contests.collect(&:name)).to include(active_template1.name, active_template2.name)
+    end
+
+    it 'should not create a contest from an inactive contest template' do
+      tourney.create_default_contests
+
+      expect(tourney.contests.collect(&:name)).to_not include(inactive_template1.name)
+    end
+  end
 end
