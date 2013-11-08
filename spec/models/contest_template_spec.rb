@@ -72,6 +72,14 @@ describe ContestTemplate do
           expect(@contest.name).to eq(template.name)
         end
 
+        it 'should have the same minimum_competitors as the contest template' do
+          expect(@contest.minimum_competitors).to eq(template.minimum_competitors)
+        end
+
+        it 'should have the same maximum_competitors as the contest template' do
+          expect(@contest.maximum_competitors).to eq(template.maximum_competitors)
+        end
+
         it 'should belong to the tournament specified' do
           expect(@contest.tournament).to eq(tourney)
         end

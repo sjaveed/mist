@@ -6,5 +6,7 @@ FactoryGirl.define do
 
     sequence(:name) {|n| "Contest Template #{n}" }
     active true
+    minimum_competitors 1
+    maximum_competitors 2
   end
 end

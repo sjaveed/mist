@@ -21,6 +21,19 @@ class ContestTemplate < ActiveRecord::Base
   def build_contest_for tournament
     raise Mist::Registration::TournamentNotFound if tournament.nil?
 
-    tournament.contests.build(name: name, contest_template: self)
+    tournament.contests.build(transferable_attributes)
+  end
+
+  private
+
+  # This method returns a hash of all the attributes (and corresponding values) that a ContestTemplate transfers to
+  # any Contests it builds
+  def transferable_attributes
+    {
+        contest_template_id: id,
+        name: name,
+        minimum_competitors: minimum_competitors,
+        maximum_competitors: maximum_competitors
+    }
   end
 end
