@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914173858) do
+ActiveRecord::Schema.define(version: 20131108100530) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -78,6 +78,21 @@ ActiveRecord::Schema.define(version: 20130914173858) do
 
   create_table "seasons", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_memberships", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.integer  "tournament_id"
+    t.boolean  "registration_open", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

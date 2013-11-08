@@ -8,6 +8,7 @@ describe Tournament do
   it { should validate_presence_of(:longitude) }
 
   it { should have_many(:contests).dependent(:destroy) }
+  it { should have_many(:teams).dependent(:destroy) }
 
   describe '.order_by_proximity_to' do
     before :each do

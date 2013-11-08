@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe User do
   it { should have_many(:registrations) }
+  it { should have_many(:team_memberships) }
+  it { should have_many(:teams).through(:team_memberships) }
 
   describe '#register' do
     let!(:user) { FactoryGirl.create(:user) }
