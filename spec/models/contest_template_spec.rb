@@ -5,6 +5,10 @@ describe ContestTemplate do
 
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
+  it { should validate_presence_of(:minimum_competitors) }
+  it { should validate_presence_of(:maximum_competitors) }
+  it { should validate_numericality_of(:minimum_competitors).is_greater_than_or_equal_to(1) }
+  it { should validate_numericality_of(:maximum_competitors).is_greater_than_or_equal_to(1) }
 
   it { should have_many(:contests) }
 

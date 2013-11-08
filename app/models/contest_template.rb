@@ -2,6 +2,9 @@ class ContestTemplate < ActiveRecord::Base
   belongs_to :category
 
   validates :name, presence: true, uniqueness: true
+  validates_presence_of :minimum_competitors, :maximum_competitors
+  validates_numericality_of :minimum_competitors, greater_than_or_equal_to: 1
+  validates_numericality_of :maximum_competitors, :greater_than_or_equal_to => :minimum_competitors
 
   has_many :contests
 
@@ -28,6 +31,7 @@ class ContestTemplate < ActiveRecord::Base
 
   # This method returns a hash of all the attributes (and corresponding values) that a ContestTemplate transfers to
   # any Contests it builds
+  # @private
   def transferable_attributes
     {
         contest_template_id: id,
