@@ -110,4 +110,20 @@ describe User do
       end
     end
   end
+
+  describe '#join_team' do
+    let!(:user) { FactoryGirl.create(:user) }
+
+    it 'should raise a TeamNotFound exception when given a nil team' do
+      expect{user.join_team(nil)}.to raise_error(Mist::Registration::TeamNotFound)
+    end
+
+    context 'given a valid team' do
+      let(:new_team) { FactoryGirl.create(:team) }
+
+      it 'should increase the team_memberships for the user' do
+        expect{user.join_team(new_team)}.to change{user.team_memberships.size}.by(1)
+      end
+    end
+  end
 end

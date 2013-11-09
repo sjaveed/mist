@@ -31,4 +31,10 @@ class User < ActiveRecord::Base
 
     registrations.where{contest_id == existing_contest.id}.destroy_all
   end
+
+  def join_team new_team
+    raise Mist::Registration::TeamNotFound.new if new_team.nil?
+
+    team_memberships.create(team: new_team)
+  end
 end
