@@ -5,6 +5,10 @@ describe ContestTemplate do
 
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
+  it { should validate_presence_of(:minimum_competitors) }
+  it { should validate_presence_of(:maximum_competitors) }
+  it { should validate_numericality_of(:minimum_competitors).is_greater_than_or_equal_to(1) }
+  it { should validate_numericality_of(:maximum_competitors).is_greater_than_or_equal_to(1) }
 
   it { should have_many(:contests) }
 
@@ -70,6 +74,14 @@ describe ContestTemplate do
 
         it 'should have the same name as the contest template' do
           expect(@contest.name).to eq(template.name)
+        end
+
+        it 'should have the same minimum_competitors as the contest template' do
+          expect(@contest.minimum_competitors).to eq(template.minimum_competitors)
+        end
+
+        it 'should have the same maximum_competitors as the contest template' do
+          expect(@contest.maximum_competitors).to eq(template.maximum_competitors)
         end
 
         it 'should belong to the tournament specified' do

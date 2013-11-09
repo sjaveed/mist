@@ -6,5 +6,7 @@ FactoryGirl.define do
     association :tournament
 
     sequence(:name) {|n| "Contest #{n}" }
+    minimum_competitors 1
+    maximum_competitors 2
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108220945) do
+ActiveRecord::Schema.define(version: 20131108224637) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 20131108220945) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",      default: true
+    t.boolean  "active",              default: true
+    t.integer  "minimum_competitors", default: 1
+    t.integer  "maximum_competitors"
   end
 
   add_index "contest_templates", ["category_id"], name: "index_contest_templates_on_category_id", using: :btree
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 20131108220945) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "contest_template_id"
+    t.integer  "minimum_competitors", default: 1
+    t.integer  "maximum_competitors"
   end
 
   add_index "contests", ["category_id"], name: "index_contests_on_category_id", using: :btree
