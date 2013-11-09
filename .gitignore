@@ -20,3 +20,6 @@
 
 # OSX Finder metadata
 .DS_Store
+
+# Generated coverage data
+/coverage

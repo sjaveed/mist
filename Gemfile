@@ -45,7 +45,12 @@ group :development, :test do
 end
 
 group :test do
+  # Provides convenient matchers to test out relationships, validations, etc.
   gem 'shoulda-matchers'
+
+  # Coverage reports using coveralls
+  gem 'coveralls', require: false
+
 end
 
 group :doc do
