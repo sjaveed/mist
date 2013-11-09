@@ -36,6 +36,9 @@ gem 'devise'
 # Documentation
 gem 'yard', require: false
 
+# Coverage reports using coveralls
+gem 'coveralls', require: false
+
 group :development, :test do
   # RSpec testing framework
   gem 'rspec-rails', '~> 2.0'
